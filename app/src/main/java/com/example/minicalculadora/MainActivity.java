@@ -34,13 +34,22 @@ public class MainActivity extends AppCompatActivity
         String numero2;
 
         numero1 = txtNumero1.getText().toString();
-        double num1 = Integer.parseInt(numero1);
         numero2 = txtNumero2.getText().toString();
-        double num2 = Integer.parseInt(numero2);
 
-        double res = num1 + num2;
+        if(numero1.isEmpty() || numero2.isEmpty())
+        {
+            lblResultado.setText("ERROR");
 
-        lblResultado.setText("" + res);
+            Toast.makeText(this, "Rellena los 2 campos", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            double num1 = Double.parseDouble(numero1);
+            double num2 = Double.parseDouble(numero2);
+            double res = num1 + num2;
+
+            lblResultado.setText("" + res);
+        }
 
         Log.d("MiniCalculadora", "Ejecutando el Sumando");
     }
@@ -51,13 +60,22 @@ public class MainActivity extends AppCompatActivity
         String numero2;
 
         numero1 = txtNumero1.getText().toString();
-        double num1 = Integer.parseInt(numero1);
         numero2 = txtNumero2.getText().toString();
-        double num2 = Integer.parseInt(numero2);
 
-        double res = num1 - num2;
+        if(numero1.isEmpty() || numero2.isEmpty())
+        {
+            lblResultado.setText("ERROR");
 
-        lblResultado.setText("" + res);
+            Toast.makeText(this, "Rellena los 2 campos", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            double num1 = Double.parseDouble(numero1);
+            double num2 = Double.parseDouble(numero2);
+            double res = num1 - num2;
+
+            lblResultado.setText("" + res);
+        }
 
         Log.d("MiniCalculadora", "Ejecutando el Restando");
     }
@@ -68,13 +86,22 @@ public class MainActivity extends AppCompatActivity
         String numero2;
 
         numero1 = txtNumero1.getText().toString();
-        double num1 = Integer.parseInt(numero1);
         numero2 = txtNumero2.getText().toString();
-        double num2 = Integer.parseInt(numero2);
 
-        double res = num1 * num2;
+        if(numero1.isEmpty() || numero2.isEmpty())
+        {
+            lblResultado.setText("ERROR");
 
-        lblResultado.setText("" + res);
+            Toast.makeText(this, "Rellena los 2 campos", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            double num1 = Double.parseDouble(numero1);
+            double num2 = Double.parseDouble(numero2);
+            double res = num1 * num2;
+
+            lblResultado.setText("" + res);
+        }
 
         Log.d("MiniCalculadora", "Ejecutando el Multiplicando");
     }
@@ -85,16 +112,28 @@ public class MainActivity extends AppCompatActivity
         String numero2;
 
         numero1 = txtNumero1.getText().toString();
-        double num1 = Integer.parseInt(numero1);
         numero2 = txtNumero2.getText().toString();
-        double num2 = Integer.parseInt(numero2);
 
-        double res = num1 / num2;
+        if(numero1.isEmpty() || numero2.isEmpty())
+        {
+            lblResultado.setText("ERROR");
 
-        if(num2 == 0)
-            lblResultado.setText("No dividas entre 0");
+            Toast.makeText(this, "Rellena los 2 campos", Toast.LENGTH_SHORT).show();
+        }
         else
-            lblResultado.setText("" + res);
+        {
+            double num1 = Double.parseDouble(numero1);
+            double num2 = Double.parseDouble(numero2);
+
+            if (num2 == 0)
+                lblResultado.setText("No dividas entre 0");
+            else
+            {
+                double res = num1 / num2;
+
+                lblResultado.setText("" + String.format("%.2f", res));
+            }
+        }
 
         Log.d("MiniCalculadora", "Ejecutando el Dividiendo");
     }
